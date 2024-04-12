@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-const Signup = () => {
+const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -10,14 +10,15 @@ const Signup = () => {
     try {
       const response = await axios.post('http://localhost:3000/signup', { email, password });
       console.log(response.data);
-    } catch (error) {
+    } catch (error) { 
+      
       console.error(error);
     }   
   };
 
   return (
     <div className="max-w-xs mx-auto mt-10 p-6 bg-white rounded shadow-md">
-    <h2 className="text-xl font-semibold mb-4">Signup</h2>
+    <h2 className="text-xl font-semibold mb-4">Login</h2>
     <form onSubmit={handleSubmit}>
       <div className="mb-4">
         <label htmlFor="email" className="block text-gray-700">Email</label>
@@ -42,11 +43,11 @@ const Signup = () => {
         />
       </div>
       <button type="submit" className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 focus:outline-none focus:bg-blue-600">
-        Signup
+        Login
       </button>
     </form>
   </div>
   );
 };
 
-export default Signup;
+export default Login;
